@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
     moreMovie: {
         color: Colors.danger,
         fontSize: 16,
-        fontFamily: 'Poppins'
+        fontFamily: 'Poppins-bold'
 
     },
     row: {

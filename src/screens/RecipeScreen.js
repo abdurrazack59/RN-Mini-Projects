@@ -36,6 +36,8 @@ const RecipeScreen = (props) => {
     const [textInput, setTextInput] = useState(null);
     const [showRecipeDetail, setShowRecipeDetail] = useState(false);
     const [recipeDetailsData, setRecipeDetailsData] = useState();
+    const [isRefreshing, setIsRefreshing] = useState(false);
+
 
     const modal = useRef();
 
@@ -65,6 +67,7 @@ const RecipeScreen = (props) => {
     const getRandomMeal = useCallback(async () => {
         try {
             setIsLoading(true);
+            setIsRefreshing(true);
             const resp = await fetch(RandomMealApi);
             if (!resp.ok) {
                 throw new Error('Something Went wrong');
@@ -72,12 +75,14 @@ const RecipeScreen = (props) => {
             const respData = await resp.json();
             setRecipeData(respData.meals);
             setIsLoading(false);
+            setIsRefreshing(false);
         } catch (error) {
             console.log(error);
             setError(error.message);
-            setIsLoading(false)
+            setIsLoading(false);
+            setIsRefreshing(false);
         }
-    }, [setError, setIsLoading]);
+    }, [error, isLoading, isRefreshing]);
 
     const getMealBySearch = useCallback(async (searchTerm) => {
         setTextInput(null);
@@ -187,6 +192,8 @@ const RecipeScreen = (props) => {
                 :
                 <FlatList
                     data={recipeData}
+                    onRefresh={getRandomMeal}
+                    refreshing={isRefreshing}
                     keyExtractor={item => item.idMeal}
                     renderItem={itemData => (
                         <RecipeList data={itemData.item} onSelect={recipeDetailHandler.bind(this, itemData.item)} />
