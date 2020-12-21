@@ -2,6 +2,8 @@ import React from 'react'
 import { StyleSheet, Text, View, Image, TouchableOpacity, TouchableNativeFeedback, Platform } from 'react-native'
 import { responsiveHeight, responsiveScreenWidth, responsiveWidth, responsiveFontSize } from "react-native-responsive-dimensions";
 import Colors from '../constants/Colors';
+import { Ionicons } from '@expo/vector-icons';
+
 
 const MovieList = (props) => {
 
@@ -20,7 +22,10 @@ const MovieList = (props) => {
                     source={{ uri: props.image }} />
                 <View style={styles.movieDetails}>
                     <Text numberOfLines={1} style={styles.title}>{props.title}</Text>
-                    <Text style={{ ...styles.ratings, backgroundColor: props.ratings >= 7 ? 'green' : props.ratings >= 5 ? 'orange' : 'red' }} >{props.ratings}</Text>
+                    <Text style={styles.ratings} >
+                        <Ionicons name="ios-star" size={14} color={props.ratings >= 7 ? 'green' : props.ratings >= 5 ? 'orange' : 'red'} />
+                        &nbsp;{props.ratings}
+                    </Text>
                 </View>
             </View>
         </Touchable>
@@ -29,15 +34,10 @@ const MovieList = (props) => {
 
 
 const styles = StyleSheet.create({
-    touchable: {
-        overflow: 'hidden',
-        borderRadius: 10
-    },
     movieContainer: {
-        flex: 1,
-        margin: 10,
+        marginHorizontal: 5,
         height: 180,
-        width: responsiveScreenWidth(45),
+        width: responsiveScreenWidth(30),
         shadowColor: 'black',
         shadowOpacity: 0.26,
         shadowOffset: { width: 0, height: 2 },
@@ -55,23 +55,18 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        paddingHorizontal: 10,
+        paddingHorizontal: 5,
         backgroundColor: Colors.light
     },
     title: {
         color: Colors.dark,
-        width: '75%',
-        fontFamily: 'Poppins-bold'
+        width: '65%',
+        fontFamily: 'Poppins'
     },
     ratings: {
-        padding: 4,
-        fontSize: 10,
-        // backgroundColor: '#272532',
-        fontFamily: 'Poppins-bold',
-        borderRadius: 3,
-        overflow: 'hidden',
-        fontFamily: 'Poppins-bold',
-        color: Colors.light
+        fontSize: 12,
+        fontFamily: 'Poppins',
+        color: Colors.dark
     },
 });
 

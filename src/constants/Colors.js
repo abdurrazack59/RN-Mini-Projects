@@ -9,5 +9,6 @@ export default {
     dark: '#222428',
     medium: '#92949c',
     light: '#f4f5f8',
-    crimson: '#ff3f6c'
+    crimson: '#ff3f6c',
+    voilet: '#2E2A68'
 }

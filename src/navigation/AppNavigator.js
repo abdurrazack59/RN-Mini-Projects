@@ -41,6 +41,18 @@ const AppNavigator = () => {
         },
     }
 
+    const githubProfileHeader = {
+        headerStyle: {
+            backgroundColor: Colors.voilet,
+            shadowColor: 'transparent'
+        },
+        headerTintColor: Colors.white,
+        headerTitleAlign: 'center',
+        headerTitleStyle: {
+            fontFamily: 'Poppins-bold',
+        },
+    }
+
     return (
         <NavigationContainer>
             <Stack.Navigator initialRouteName="Home" >
@@ -85,7 +97,7 @@ const AppNavigator = () => {
                 <Stack.Screen
                     name="Github Profile"
                     component={GithubProfileScreen}
-                    options={defaultHeaderStyle}
+                    options={githubProfileHeader}
                 />
             </Stack.Navigator>
         </NavigationContainer>

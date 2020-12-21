@@ -45,9 +45,6 @@ const RecipeScreen = (props) => {
     const MealById = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=";
     const MealBySearch = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
 
-    console.log(recipeData);
-    console.log(showRecipeDetail);
-
 
     let Touchable = TouchableOpacity;
 
@@ -73,6 +70,7 @@ const RecipeScreen = (props) => {
                 throw new Error('Something Went wrong');
             }
             const respData = await resp.json();
+            console.log(respData.meals);
             setRecipeData(respData.meals);
             setIsLoading(false);
             setIsRefreshing(false);
@@ -88,7 +86,6 @@ const RecipeScreen = (props) => {
         setTextInput(null);
         if (searchTerm.length === 0) {
             console.log('search empty');
-            getRandomMeal();
             return;
         }
         try {
@@ -98,6 +95,7 @@ const RecipeScreen = (props) => {
                 throw new Error('Something Went wrong');
             }
             const respData = await resp.json();
+            console.log(respData.meals);
             setRecipeData(respData.meals);
             setIsLoading(false);
         } catch (error) {
@@ -220,7 +218,7 @@ const styles = StyleSheet.create({
         borderColor: Colors.light,
         borderWidth: 1,
         margin: 15,
-        color: Colors.light,
+        color: Colors.dark,
         backgroundColor: Colors.white,
         borderRadius: 5,
         fontFamily: 'Poppins'

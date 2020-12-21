@@ -25,6 +25,10 @@ const GithubProfileScreen = () => {
     }
 
     const getUserByName = (username) => {
+        if (username.length === 0) {
+            console.log('search empty');
+            return;
+        }
         setTextInput(null);
         getUser(username);
     };

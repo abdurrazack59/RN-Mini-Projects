@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { StyleSheet, Text, View, TextInput, FlatList, SafeAreaView, TouchableOpacity, ActivityIndicator, Platform } from 'react-native';
 import Colors from '../constants/Colors';
 import MovieList from '../component/MovieList';
@@ -43,13 +43,13 @@ const MoviesScreen = (props) => {
     };
 
     useEffect(() => {
+        console.log('useeffect callback');
         getAllMovies();
-        loadMoreMovies();
         // renderFooter();
         return () => {
-
+            console.log('clean up movie screen');
         };
-    }, [getAllMovies, loadMoreMovies]);
+    }, []);
 
     const getAllMovies = async () => {
         try {
@@ -76,14 +76,14 @@ const MoviesScreen = (props) => {
         }
     };
 
-    const loadMoreMovies = () => {
+    const loadMoreMovies = useCallback(() => {
         if (isSearchMovie) {
             return;
         }
         console.log('page is' + page);
         setpage(prevState => prevState + 1);
         getAllMovies();
-    };
+    }, [setpage, getAllMovies]);
 
     // const renderFooter = () => {
     //     return (
@@ -136,10 +136,11 @@ const MoviesScreen = (props) => {
                 data={allMovies}
                 onEndReached={loadMoreMovies}
                 keyExtractor={(item, index) => String(index)}
-                numColumns={2}
+                numColumns={3}
                 columnWrapperStyle={styles.row}
                 enableEmptySections={true}
-                ListFooterComponent={() => isLoading ? <ActivityIndicator style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginBottom: 10 }} size={'small'} color={Colors.danger} /> : null}
+                showsVerticalScrollIndicator={false}
+                ListFooterComponent={() => isLoading && <ActivityIndicator style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginBottom: 10 }} size={'small'} color={Colors.danger} />}
                 renderItem={itemData =>
                     <MovieList
                         onSelect={movieListHandler.bind(this, itemData.item)}
@@ -165,7 +166,7 @@ const styles = StyleSheet.create({
         borderColor: Colors.light,
         borderWidth: 1,
         margin: 15,
-        color: Colors.light,
+        color: Colors.dark,
         backgroundColor: Colors.light,
         borderRadius: 5,
         fontFamily: 'Poppins'
@@ -189,6 +190,7 @@ const styles = StyleSheet.create({
     },
     row: {
         flex: 1,
+        margin: 5
     },
 
     footer: {

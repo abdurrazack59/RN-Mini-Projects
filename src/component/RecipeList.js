@@ -48,15 +48,15 @@ const RecipeList = (props) => {
                         <Text numberOfLines={1} style={{ ...styles.title, marginTop: 5 }}>{data.strMeal}</Text>
                         <View style={styles.detail3}>
                             <Text style={{ ...styles.title, color: Colors.medium, fontSize: 12, }}>
-                                <Ionicons name="ios-timer" size={15} color={Colors.medium} />
+                                <Ionicons name="ios-timer" size={12} color={Colors.primary} />
                                 &nbsp;{Math.floor((Math.random() * 40) + 20)} min
                             </Text>
                             <Text style={{ ...styles.title, color: Colors.medium, fontSize: 12, marginLeft: 30 }}>
-                                <Ionicons name="ios-flag" size={15} color={Colors.medium} />
+                                <Ionicons name="ios-flag" size={12} color={Colors.secondary} />
                                 &nbsp;{data.strArea}
                             </Text>
                             <Text style={{ ...styles.title, color: Colors.medium, fontSize: 12, marginLeft: 30, }}>
-                                <Ionicons name="ios-person" size={15} color={Colors.medium} />
+                                <Ionicons name="ios-person" size={12} color={Colors.tertiary} />
                                 &nbsp;{Math.floor((Math.random() * 10) + 1)} People
                             </Text>
                         </View>
