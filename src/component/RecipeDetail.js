@@ -1,7 +1,8 @@
 import React, { useEffect, useState, } from "react";
 import { View, Text, ScrollView, StyleSheet, Image, Linking } from "react-native";
 import Colors from "../constants/Colors";
-import { WebView } from 'react-native-webview'
+import { WebView } from 'react-native-webview';
+
 
 export default function RecipeDetail(props) {
 

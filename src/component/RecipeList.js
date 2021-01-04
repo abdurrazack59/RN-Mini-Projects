@@ -30,7 +30,7 @@ const RecipeList = (props) => {
                             style={styles.image}
                             source={{ uri: data.strMealThumb }}
                         />
-                        <View style={{ position: 'absolute', right: 0, top: 0, backgroundColor: Colors.dark, padding: 5, borderBottomLeftRadius: 5 }}>
+                        <View style={styles.ratingContainer}>
                             <AirbnbRating
                                 //  reviews={["Terrible", "Bad", "Meh", "OK", "Good", "Hmm...", "Very Good", "Wow", "Amazing", "Unbelievable", "Jesus"]}
                                 selectedColor={Colors.crimson}
@@ -97,6 +97,14 @@ const styles = StyleSheet.create({
     image: {
         width: '100%',
         height: 175
+    },
+    ratingContainer: {
+        position: 'absolute',
+        right: 0,
+        top: 0,
+        backgroundColor: Colors.dark,
+        padding: 5,
+        borderBottomLeftRadius: 5
     },
     recipeDetail: {
         paddingLeft: 15,
