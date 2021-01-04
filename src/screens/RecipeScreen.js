@@ -14,6 +14,8 @@ import {
 } from 'react-native';
 import Colors from '../constants/Colors';
 import Loading from '../component/loading/Loading';
+import SkeletonLoading from '../component/loading/SkeletonLoading';
+
 import RecipeList from '../component/RecipeList';
 import RecipeDetail from '../component/RecipeDetail'
 import recipeCategory from '../data/recipeCategory';
@@ -186,7 +188,8 @@ const RecipeScreen = (props) => {
                 </View>
             }
             { isLoading ?
-                <Loading style={{ flex: 1, marginTop: 50, alignItems: 'center' }} />
+                // <Loading style={{ flex: 1, marginTop: 50, alignItems: 'center' }} />
+                <SkeletonLoading />
                 :
                 <FlatList
                     data={recipeData}

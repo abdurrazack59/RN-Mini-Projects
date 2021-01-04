@@ -25,7 +25,7 @@
     "react-native-gesture-handler": "~1.7.0",
     "react-native-modalize": "^2.0.8",
     "react-native-raw-bottom-sheet": "^2.2.0",
-    "react-native-reanimated": "~1.13.0",
+    "react-native-reanimated": "^1.13.2",
     "react-native-responsive-dimensions": "^3.1.1",
     "react-native-safe-area-context": "3.1.4",
     "react-native-screens": "^2.10.1",
