@@ -13,7 +13,7 @@ const SkeletonLoading = () => {
                 </SkeletonPlaceholder.Item>
                 <SkeletonPlaceholder.Item
                     width="40%"
-                    height={20}
+                    height={10}
                     borderRadius={6}
                     marginLeft={15}
                     marginTop={10}
@@ -21,7 +21,7 @@ const SkeletonLoading = () => {
                 />
                 <SkeletonPlaceholder.Item
                     width="40%"
-                    height={20}
+                    height={10}
                     borderRadius={6}
                     marginLeft={15}
                     marginTop={10}
@@ -29,7 +29,7 @@ const SkeletonLoading = () => {
                 />
                 <SkeletonPlaceholder.Item
                     width="70%"
-                    height={20}
+                    height={10}
                     borderRadius={6}
                     marginLeft={15}
                     marginTop={10}
